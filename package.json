@@ -2,7 +2,7 @@
   "name": "smart-syntax-escape",
   "displayName": "Smart Syntax Escape",
   "description": "Safely escape nested JavaScript, TypeScript, JSX, and TSX closing syntax with one command.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "publisher": "local",
   "license": "MIT",
   "engines": {
@@ -27,6 +27,13 @@
       {
         "command": "smartSyntaxEscape.escape",
         "title": "Smart Syntax Escape"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "smartSyntaxEscape.escape",
+        "key": "alt+enter",
+        "when": "editorTextFocus && (editorLangId == javascript || editorLangId == javascriptreact || editorLangId == typescript || editorLangId == typescriptreact)"
       }
     ]
   },

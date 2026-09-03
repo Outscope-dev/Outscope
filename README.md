@@ -54,8 +54,8 @@ not escape targets.
    before generated closing syntax, and run **Smart Syntax Escape** from the
    Command Palette.
 
-The command ID is `smartSyntaxEscape.escape`. No default keybinding is installed;
-assign one with VS Code's Keyboard Shortcuts editor if desired.
+The command ID is `smartSyntaxEscape.escape`. Press `Alt+Enter` in a supported
+editor or run **Smart Syntax Escape** from the Command Palette.
 
 To build an installable VSIX, run `npm run package`.
 

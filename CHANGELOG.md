@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.0.1
+
+- Added `Alt+Enter` as the default Smart Syntax Escape keybinding in supported
+  JavaScript, TypeScript, JSX, and TSX editors.
+
 ## 2.0.0
 
 - Added JSX and TSX closing-boundary support, including expressions,
