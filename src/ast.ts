@@ -1,21 +1,43 @@
 import * as ts from "typescript";
 
-export type SupportedLanguage = "javascript" | "typescript";
+export type SupportedLanguage =
+  | "javascript"
+  | "javascriptreact"
+  | "typescript"
+  | "typescriptreact";
 
 export function createSourceFile(
   sourceText: string,
   language: SupportedLanguage,
 ): ts.SourceFile {
-  const fileName = language === "typescript" ? "document.ts" : "document.js";
-  const scriptKind = language === "typescript" ? ts.ScriptKind.TS : ts.ScriptKind.JS;
+  const fileNameByLanguage: Record<SupportedLanguage, string> = {
+    javascript: "document.js",
+    javascriptreact: "document.jsx",
+    typescript: "document.ts",
+    typescriptreact: "document.tsx",
+  };
+  const scriptKindByLanguage: Record<SupportedLanguage, ts.ScriptKind> = {
+    javascript: ts.ScriptKind.JS,
+    javascriptreact: ts.ScriptKind.JSX,
+    typescript: ts.ScriptKind.TS,
+    typescriptreact: ts.ScriptKind.TSX,
+  };
 
   return ts.createSourceFile(
-    fileName,
+    fileNameByLanguage[language],
     sourceText,
     ts.ScriptTarget.Latest,
     true,
-    scriptKind,
+    scriptKindByLanguage[language],
   );
+}
+
+export function getLanguageVariant(
+  language: SupportedLanguage,
+): ts.LanguageVariant {
+  return language === "javascriptreact" || language === "typescriptreact"
+    ? ts.LanguageVariant.JSX
+    : ts.LanguageVariant.Standard;
 }
 
 /** Returns nodes from the SourceFile down to the smallest node at offset. */

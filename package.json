@@ -1,8 +1,8 @@
 {
   "name": "smart-syntax-escape",
   "displayName": "Smart Syntax Escape",
-  "description": "Safely escape nested JavaScript and TypeScript closing syntax with one command.",
-  "version": "1.0.0",
+  "description": "Safely escape nested JavaScript, TypeScript, JSX, and TSX closing syntax with one command.",
+  "version": "2.0.0",
   "publisher": "local",
   "license": "MIT",
   "engines": {
@@ -10,6 +10,13 @@
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "javascript",
+    "typescript",
+    "jsx",
+    "tsx",
+    "cursor"
   ],
   "activationEvents": [
     "onCommand:smartSyntaxEscape.escape"

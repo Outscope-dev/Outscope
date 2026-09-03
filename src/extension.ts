@@ -1,11 +1,16 @@
 import * as vscode from "vscode";
-import { findSmartEscapeOffset } from "./smartEscape";
+import { SmartEscapeAnalysisCache } from "./analysisCache";
+import { planSmartEscapeSelections } from "./selectionPlan";
 import type { SupportedLanguage } from "./ast";
 
 const supportedLanguages = new Set<SupportedLanguage>([
   "javascript",
+  "javascriptreact",
   "typescript",
+  "typescriptreact",
 ]);
+
+const analysisCache = new SmartEscapeAnalysisCache();
 
 export function activate(context: vscode.ExtensionContext): void {
   const disposable = vscode.commands.registerTextEditorCommand(
@@ -13,10 +18,17 @@ export function activate(context: vscode.ExtensionContext): void {
     (editor) => runSmartSyntaxEscape(editor),
   );
 
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    disposable,
+    vscode.workspace.onDidCloseTextDocument((document) => {
+      analysisCache.delete(document.uri.toString());
+    }),
+  );
 }
 
-export function deactivate(): void {}
+export function deactivate(): void {
+  analysisCache.clear();
+}
 
 function runSmartSyntaxEscape(editor: vscode.TextEditor): void {
   const languageId = editor.document.languageId;
@@ -24,24 +36,26 @@ function runSmartSyntaxEscape(editor: vscode.TextEditor): void {
     return;
   }
 
-  // Moving a non-empty selection would silently discard user intent.
-  if (editor.selections.some((selection) => !selection.isEmpty)) {
-    return;
-  }
-
-  const sourceText = editor.document.getText();
   const language = languageId as SupportedLanguage;
-  const nextSelections = editor.selections.map((selection) => {
-    const cursorOffset = editor.document.offsetAt(selection.active);
-    const target = findSmartEscapeOffset(sourceText, cursorOffset, language);
+  const key = editor.document.uri.toString();
+  const analysis = analysisCache.get(
+    key,
+    editor.document.version,
+    language,
+    () => editor.document.getText(),
+  );
+  const offsetSelections = editor.selections.map((selection) => ({
+    anchorOffset: editor.document.offsetAt(selection.anchor),
+    activeOffset: editor.document.offsetAt(selection.active),
+  }));
+  const plannedSelections = planSmartEscapeSelections(
+    analysis,
+    offsetSelections,
+  );
 
-    if (target === null) {
-      return selection;
-    }
-
-    const position = editor.document.positionAt(target);
-    return new vscode.Selection(position, position);
+  editor.selections = plannedSelections.map((selection) => {
+    const anchor = editor.document.positionAt(selection.anchorOffset);
+    const active = editor.document.positionAt(selection.activeOffset);
+    return new vscode.Selection(anchor, active);
   });
-
-  editor.selections = nextSelections;
 }
