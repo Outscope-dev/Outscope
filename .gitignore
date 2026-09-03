@@ -1,4 +1,28 @@
+# Dependencies
 node_modules/
+
+# Compiled and test output
 out/
+dist/
+coverage/
+.nyc_output/
+.vscode-test/
+
+# Release artifacts (attach these to GitHub Releases instead)
 *.vsix
+*.tgz
+
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
