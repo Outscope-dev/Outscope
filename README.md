@@ -1,8 +1,8 @@
-# Smart Syntax Escape
+# Outscope
 
-Smart Syntax Escape is a VS Code extension for JavaScript, TypeScript, JSX, and
-TSX. It moves each collapsed cursor across the longest safely escapable run of
-nested closing syntax in one command.
+Outscope is a VS Code extension whose core command, Smart Syntax Escape, works
+with JavaScript, TypeScript, JSX, and TSX. It moves each collapsed cursor across
+the longest safely escapable run of nested closing syntax in one command.
 
 For example, running **Smart Syntax Escape** here:
 
@@ -51,11 +51,11 @@ not escape targets.
 3. Open this folder in VS Code and press `F5` to launch an Extension Development
    Host.
 4. Open a `.js`, `.mjs`, `.cjs`, `.ts`, `.jsx`, or `.tsx` file, place the cursor
-   before generated closing syntax, and run **Smart Syntax Escape** from the
-   Command Palette.
+   before generated closing syntax, and run **Outscope: Smart Syntax Escape**
+   from the Command Palette.
 
-The command ID is `smartSyntaxEscape.escape`. Press `Alt+Enter` in a supported
-editor or run **Smart Syntax Escape** from the Command Palette.
+The command ID is `outscope.escape`. Press `Alt+Enter` in a supported editor or
+run **Outscope: Smart Syntax Escape** from the Command Palette.
 
 To build an installable VSIX, run `npm run package`.
 

@@ -1,8 +1,8 @@
 {
-  "name": "smart-syntax-escape",
-  "displayName": "Smart Syntax Escape",
-  "description": "Safely escape nested JavaScript, TypeScript, JSX, and TSX closing syntax with one command.",
-  "version": "2.0.1",
+  "name": "outscope",
+  "displayName": "Outscope",
+  "description": "Outscope safely escapes nested JavaScript, TypeScript, JSX, and TSX closing syntax with one command.",
+  "version": "2.0.2",
   "publisher": "local",
   "license": "MIT",
   "engines": {
@@ -19,19 +19,20 @@
     "cursor"
   ],
   "activationEvents": [
-    "onCommand:smartSyntaxEscape.escape"
+    "onCommand:outscope.escape"
   ],
   "main": "./out/src/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "smartSyntaxEscape.escape",
-        "title": "Smart Syntax Escape"
+        "command": "outscope.escape",
+        "title": "Smart Syntax Escape",
+        "category": "Outscope"
       }
     ],
     "keybindings": [
       {
-        "command": "smartSyntaxEscape.escape",
+        "command": "outscope.escape",
         "key": "alt+enter",
         "when": "editorTextFocus && (editorLangId == javascript || editorLangId == javascriptreact || editorLangId == typescript || editorLangId == typescriptreact)"
       }

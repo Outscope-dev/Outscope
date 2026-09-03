@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+- Renamed the extension package and display name to **Outscope**.
+- Moved the command to the `outscope.escape` namespace and categorized it as
+  **Outscope: Smart Syntax Escape** in the Command Palette.
+
 ## 2.0.1
 
 - Added `Alt+Enter` as the default Smart Syntax Escape keybinding in supported

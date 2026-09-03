@@ -14,7 +14,7 @@ const analysisCache = new SmartEscapeAnalysisCache();
 
 export function activate(context: vscode.ExtensionContext): void {
   const disposable = vscode.commands.registerTextEditorCommand(
-    "smartSyntaxEscape.escape",
+    "outscope.escape",
     (editor) => runSmartSyntaxEscape(editor),
   );
 
