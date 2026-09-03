@@ -1,0 +1,40 @@
+{
+  "name": "smart-syntax-escape",
+  "displayName": "Smart Syntax Escape",
+  "description": "Safely escape nested JavaScript and TypeScript closing syntax with one command.",
+  "version": "1.0.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:smartSyntaxEscape.escape"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "smartSyntaxEscape.escape",
+        "title": "Smart Syntax Escape"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "test": "npm run compile && node --test out/test/smartEscape.test.js",
+    "package": "npm run compile && vsce package --allow-missing-repository"
+  },
+  "dependencies": {
+    "typescript": "^5.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.6.0"
+  }
+}
