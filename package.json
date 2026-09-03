@@ -2,9 +2,9 @@
   "name": "outscope",
   "displayName": "Outscope",
   "description": "Outscope safely escapes nested JavaScript, TypeScript, JSX, and TSX closing syntax with one command.",
-  "version": "2.0.3",
+  "version": "1.0.0",
   "publisher": "local",
-  "icon": "public/Logo_Marekt.png",
+  "icon": "public/Logo.png",
   "license": "MIT",
   "engines": {
     "vscode": "^1.90.0"
