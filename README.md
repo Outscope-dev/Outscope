@@ -11,6 +11,10 @@
     <img src="https://img.shields.io/badge/VS%20Code-%5E1.90.0-007ACC?logo=visualstudiocode&logoColor=white" alt="VS Code 1.90 or newer" />
     <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-22c55e" alt="MIT License" /></a>
   </p>
+
+  <p>
+    <a href="https://marketplace.visualstudio.com/items?itemName=Outscope-dev.outscope"><strong>Install from Visual Studio Marketplace</strong></a>
+  </p>
 </div>
 
 ---
@@ -117,6 +121,10 @@ JSX expression의 `}`, 태그의 `>`, self-closing `/>`, 일치하는 닫는 태
 | 오프라인 동작 | 코드나 문서 내용을 외부로 전송하지 않으며 로컬에서만 분석합니다. |
 
 ## 설치
+
+### Visual Studio Marketplace에서 설치
+
+[Visual Studio Marketplace에서 Outscope 설치하기](https://marketplace.visualstudio.com/items?itemName=Outscope-dev.outscope)
 
 ### GitHub Release에서 설치
 
