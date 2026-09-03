@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.3
+
+- Added the Outscope marketplace logo to the extension package metadata.
+
 ## 2.0.2
 
 - Renamed the extension package and display name to **Outscope**.
