@@ -1,18 +1,18 @@
 {
   "name": "outscope",
   "displayName": "Outscope",
-  "description": "Outscope safely escapes nested JavaScript, TypeScript, JSX, and TSX closing syntax with one command.",
+  "description": "Smartly escape nested syntax with a single keystroke.",
   "version": "1.0.0",
-  "publisher": "local",
+  "publisher": "Outscope-dev",
   "icon": "public/Logo.png",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jaek-Kein/Outscope.git"
+    "url": "https://github.com/Outscope-dev/Outscope"
   },
-  "homepage": "https://github.com/Jaek-Kein/Outscope#readme",
+  "homepage": "https://github.com/Outscope-dev/Outscope#readme",
   "bugs": {
-    "url": "https://github.com/Jaek-Kein/Outscope/issues"
+    "url": "https://github.com/Outscope-dev/Outscope/issues"
   },
   "engines": {
     "vscode": "^1.90.0"
@@ -51,7 +51,7 @@
     "compile": "tsc -p .",
     "watch": "tsc -watch -p .",
     "test": "npm run compile && node --test out/test/smartEscape.test.js",
-    "package": "npm run compile && vsce package --allow-missing-repository"
+    "package": "npm run compile && vsce package"
   },
   "dependencies": {
     "typescript": "^5.9.0"
